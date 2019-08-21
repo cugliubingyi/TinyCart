@@ -3,6 +3,7 @@ import {Globalstyle} from './style';
 import {Iconfontstyle} from "./statics/iconfont/iconfont";
 import {BrowserRouter,Route} from "react-router-dom";
 import {Provider} from 'react-redux';
+import Header from './common/header';
 import Home from './pages/home';
 import Cart from './pages/cart';
 import Detail from './pages/detail';
@@ -16,6 +17,7 @@ class App extends Component{
                     <div>
                         <Globalstyle/>
                         <Iconfontstyle/>
+                        <Header/>
                         <Route path="/" component={Home} exact></Route>
                         <Route path="/cart" component={Cart} exact></Route>
                         <Route path="/detail/:id" component={Detail} exact></Route>

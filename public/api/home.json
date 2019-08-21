@@ -1,0 +1,84 @@
+{
+  "success": true,
+  "data": {
+    "homeList": [{
+      "id": 1,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i3/643301378/O1CN01HMJ4IY1M3AHqsNSRN_!!0-item_pic.jpg_310x310.jpg",
+      "name": "简约潮流体恤衫",
+      "desc": "日系原创宽松撞色拼接圆领短袖T恤男士休闲半袖TEE简约潮流体恤衫",
+      "price": 65
+    },{
+      "id": 2,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i4/643301378/O1CN01FbMto21M3AHrnGWQu_!!0-item_pic.jpg_310x310.jpg",
+      "name": "简约体恤",
+      "desc": "夏季欧美街头纯色假二件圆领短袖T恤学生宽松休闲半袖tee简约体恤",
+      "price": 78
+    },{
+      "id": 3,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i2/643301378/O1CN01Qvte5X1M3AHjrHAo5_!!0-item_pic.jpg_310x310.jpg",
+      "name": "潮t上衣",
+      "desc": "日系原创青年纯色圆领短袖打底衫夏季男士体恤衫潮半袖T恤潮t上衣",
+      "price": 59
+    },{
+      "id": 4,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i4/643301378/O1CN01dw2bmi1M3AIcOFjrB_!!643301378.jpg_310x310.jpg",
+      "name": "学生打底TEE",
+      "desc": "欧美简约字母印花圆领短袖T恤男士宽松休闲半袖体恤衫学生打底TEE",
+      "price": 69
+    },{
+      "id": 5,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i2/643301378/O1CN01N9ej9e1M3AHqnmQ7z_!!0-item_pic.jpg_310x310.jpg",
+      "name": "潮体恤",
+      "desc": "夏季欧美街头个性印花圆领短袖T恤学生宽松休闲半袖打底tee潮体恤",
+      "price": 68
+    },{
+      "id": 6,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i3/643301378/O1CN01u8OQ2G1M3AHrnGFmW_!!0-item_pic.jpg_310x310.jpg",
+      "name": "潮流体恤衫",
+      "desc": "日系原创简约基础款纯色圆领打底衫男式休闲TEE短袖T恤潮流体恤衫",
+      "price": 49
+    },{
+      "id": 7,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i2/643301378/O1CN01DKuU0g1M3AHpSetjl_!!0-item_pic.jpg_310x310.jpg",
+      "name": "打底衫",
+      "desc": "日系夏装青少年卡通刺绣圆领短袖T恤男士半袖体恤衫休闲TEE打底衫",
+      "price": 58
+    },{
+      "id": 8,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i4/643301378/O1CN01J1utp11M3AHqrmggb_!!0-item_pic.jpg_310x310.jpg",
+      "name": "半袖T",
+      "desc": "日系原创简约纯色假二件圆领短袖T恤男士休闲打底体恤衫潮流半袖T",
+      "price": 58
+    },{
+      "id": 9,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i1/643301378/O1CN01cTVhOb1M3AHoK2vQZ_!!0-item_pic.jpg_310x310.jpg",
+      "name": "打底衫上衣",
+      "desc": "夏装新款男士短袖T恤修身圆领半袖纯色T恤宽松体恤男装打底衫上衣",
+      "price": 38
+    },{
+      "id": 10,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i3/643301378/O1CN01edAQat1M3AI9UZNmo_!!643301378.jpg_310x310.jpg",
+      "name": "上衣潮体恤",
+      "desc": "欧美简约卡通动漫印花短袖T恤夏季学生宽松圆领半袖TEE上衣潮体恤",
+      "price": 68
+    },{
+      "id": 11,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i4/643301378/O1CN01e1DknG1M3AHrnF2xg_!!0-item_pic.jpg_310x310.jpg",
+      "name": "潮流打底TEE",
+      "desc": "夏季卡通小狗印花圆领短袖T恤学生宽松卡通半袖体恤衫潮流打底TEE",
+      "price": 65
+    },{
+      "id": 12,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i3/643301378/O1CN01IVxXDO1M3AJZLSbc8_!!0-item_pic.jpg_310x310.jpg",
+      "name": "圆领半袖体恤衫",
+      "desc": "【特价】夏季日系原创文字印花短袖T恤BF风休闲TEE圆领半袖体恤衫",
+      "price": 68
+    },{
+      "id": 13,
+      "imgUrl": "http://img.alicdn.com/bao/uploaded/i2/643301378/O1CN013QNM0d1M3AJxHqQOS_!!0-item_pic.jpg_310x310.jpg",
+      "name": "上衣短袖男",
+      "desc": "【特价】夏季简约百搭圆领短袖T恤青少年宽松印花T恤衫上衣短袖男",
+      "price": 68
+    }]
+  }
+}
