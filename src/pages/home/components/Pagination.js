@@ -10,7 +10,7 @@ class Pagination extends Component{
         if(homeList.toJS().length){
             for(let i = 1;i <= totalPage;i++){
                 pageList.push(
-                    <PaginationItem key={i} onClick={() => handleChangePage(i)}>{i}</PaginationItem>
+                    <PaginationItem className={`pagination-num ${page===i?'pagination-active':''}`} key={i} onClick={() => handleChangePage(i)}>{i}</PaginationItem>
                 )
             }
         }

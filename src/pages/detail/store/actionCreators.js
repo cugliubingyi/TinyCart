@@ -16,3 +16,13 @@ export const getProductInfo = (id) => {
         })
     }
 };
+
+export const changeCount = (count) => ({
+    type:constants.CHANGE_COUNT,
+    count
+});
+
+export const changeCouldSubmit = (couldSubmit) => ({
+    type:constants.CHANGE_COULD_SUBMIT,
+    couldSubmit
+});

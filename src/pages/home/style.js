@@ -79,7 +79,26 @@ export const PaginationList = styled.ul`
 export const PaginationItem = styled.li`
   width:60px;
   height:60px;
+  margin-right:20px;
   text-align:center;
-  line-height:center;
+  line-height:60px;
   cursor:pointer;
+  &:last-of-type{
+    margin-right:0;
+  }
+  &.pagination-num:hover{
+    background:#ddd;
+    border-radius:30px;
+  }
+  &.pagination-active{
+    color:#fff;
+    background:#4D555D;
+    border-radius:30px;
+    &.pagination-num:hover{
+      color:#fff;
+      background:#4D555D;
+      border-radius:30px;
+    }
+  }
 `;
+
