@@ -19,7 +19,7 @@ class List extends Component{
                                 </ProductPicWrapper>
                                 <ProductInfo>
                                     <p className="product-name">{newList[i].name}</p>
-                                    <p className="product-price">￥ <span className="product-red">{newList[i].price}</span></p>
+                                    <p className="product-price">￥ <span className="product-red">{newList[i].price + '.00'}</span></p>
                                 </ProductInfo>
                             </Link>
                         </ProductItem>

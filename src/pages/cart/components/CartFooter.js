@@ -10,7 +10,7 @@ class CartFooter extends Component{
             return(
                 <CartFooterWrapper>
                     <div className="cart-footer-close">去结算</div>
-                    <div className="cart-footer-total">￥{this.getFooterTotal(newList)}</div>
+                    <div className="cart-footer-total">￥{this.getFooterTotal(newList) + '.00'}</div>
                 </CartFooterWrapper>
             )
         }else{

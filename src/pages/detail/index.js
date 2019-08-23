@@ -23,7 +23,7 @@ class Detail extends Component{
                         <p className="product-desc">{productInfo.get('desc')}</p>
                         <ProductGrid>
                             <ProductGridItem>价格</ProductGridItem>
-                            <ProductGridItem className="product-price">￥{productInfo.get('price')}</ProductGridItem>
+                            <ProductGridItem className="product-price">￥{productInfo.get('price') + '.00'}</ProductGridItem>
                             <ProductGridItem>数量</ProductGridItem>
                             <ProductGridItem className="product-num">
                                 <ProductAmount>

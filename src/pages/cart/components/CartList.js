@@ -13,7 +13,7 @@ class CartList extends Component{
                     <img className="product-img" src={item.imgUrl} alt=""/>
                     <p className="product-desc">{item.desc}</p>
                 </div>
-                <div className="product-price">￥{item.price}</div>
+                <div className="product-price">￥{item.price + '.00'}</div>
                 <div className="product-count">
                     <div className="product-amount">
                         <div className="product-subtract" onClick={() => handleSubtractClick(item)}>-</div>
@@ -21,7 +21,7 @@ class CartList extends Component{
                         <div className="product-add" onClick={() => handleAddClick(item)}>+</div>
                     </div>
                 </div>
-                <div className="product-totalPrice">￥{(item.price)*(item.count)}</div>
+                <div className="product-totalPrice">￥{(item.price)*(item.count) + '.00'}</div>
                 <div className="product-operation"><i className="iconfont iconcuo" onClick={() => handleDeleteCartItem(item)}></i></div>
             </CartItem>
         ));
