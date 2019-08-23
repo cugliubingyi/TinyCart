@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {actionCreators} from './store';
 import {actionCreators as cartActionCreators} from '../cart/store';
+import {actionCreators as popUpActionCreators} from '../../base/popup/store';
+import PopUp from '../../base/popup';
 import {ProductWrapper,ProductPic,ProductInfo,ProductGrid,ProductGridItem,ProductAmount,ProductSubtract,ProductInput,ProductTip,ProductAdd,AddCartBtn} from './style';
 
 class Detail extends Component{
@@ -10,7 +12,7 @@ class Detail extends Component{
     }
 
     render(){
-        const {productInfo,count,couldSubmit,handleInputChange,handleChangeCount,handleAddCartBtnClick} = this.props;
+        const {productInfo,count,couldSubmit,handleInputChange,handleChangeCount,handleAddCartBtnClick,show} = this.props;
         return(
             <div>
                 <ProductWrapper>
@@ -38,6 +40,12 @@ class Detail extends Component{
                             <AddCartBtn onClick={() => handleAddCartBtnClick(couldSubmit,productInfo,count)}>加入购物车</AddCartBtn>
                         </ProductGrid>
                     </ProductInfo>
+                    {
+                        show?
+                            <PopUp/>
+                            :null
+
+                    }
                 </ProductWrapper>
             </div>
         )
@@ -47,7 +55,8 @@ class Detail extends Component{
 const mapState = (state) => ({
     productInfo:state.getIn(['detail','productInfo']),
     count:state.getIn(['detail','count']),
-    couldSubmit:state.getIn(['detail','couldSubmit'])
+    couldSubmit:state.getIn(['detail','couldSubmit']),
+    show:state.getIn(['popup','show'])
 });
 
 const mapDispatch = (dispatch) => ({
@@ -78,8 +87,11 @@ const mapDispatch = (dispatch) => ({
     handleAddCartBtnClick(couldSubmit,productInfo,count){
         if(couldSubmit){
             let productItem = productInfo.toJS();
-            productItem = {count,...productItem}
+            const totalPrice = productItem.price*count;
+            let checked = false;
+            productItem = {count,totalPrice,checked,...productItem};
             dispatch(cartActionCreators.addCartItem(productItem));
+            dispatch(popUpActionCreators.changeShowPopUp());
         }
     }
 });

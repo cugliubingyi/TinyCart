@@ -34,7 +34,7 @@ export const ProductInfo = styled.div`
     overflow:hidden;
     text-overflow:ellipsis;
     display:-webkit-box;
-    -webkit-line-clamp:$num;
+    -webkit-line-clamp:2;
     -webkit-box-orient:vertical;
     white-space:normal!important;
     word-wrap:break-word;
@@ -113,7 +113,7 @@ export const ProductTip = styled.div`
   padding:0 10px;
   height:28px;
   line-height:28px;
-  color:#333;
+  color:#404040;
   font-size:12px;
   border:1px solid #ff4400;
 `;

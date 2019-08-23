@@ -16,19 +16,32 @@ export const Nav = styled.div`
 
 export const Logo = styled.div`
   float:left;
-  width:80px;
+  width:120px;
   height:60px;
   background:url(${logoPic});
-  background-size:60px 40px;
+  background-size:80px 40px;
   background-repeat:no-repeat;
-  background-position:10px 10px;
+  background-position:20px 10px;
 `;
 
 export const CartButton = styled.div`
   float:right;
-  width:80px;
+  width:120px;
   height:60px;
   text-align:center;
   line-height:60px;
   color:#333;
+  :hover{
+    background:#f5f5f5;
+    color:#ff4400;
+  }
+  .iconfont{
+    margin-right:6px;
+    color:#ff4400;
+  }
+  .cart-item-num{
+    margin-left:6px;
+    color:#ff4400;
+    font-weight:bold;
+  }
 `;

@@ -19,6 +19,9 @@ export const ProductItem = styled.li`
   height:100%;
   .product-link{
     text-decoration:none;
+    display:block;
+    width:100%;
+    height:100%;
   }
   &:last-of-type{
     margin-right:0;
@@ -29,6 +32,7 @@ export const ProductPicWrapper = styled.div`
   position:relative;
   width:100%;
   padding-bottom:100%;
+  margin-left:1px;
   .product-img{
     position:absolute;
     left:0;
@@ -42,8 +46,7 @@ export const ProductInfo = styled.div`
   padding:10px;
   background:#F5F5F5;
   .product-name{
-    height: 39px;
-    margin: 5px 0 3px;
+    height: 35px;
     line-height: 18px;
     font-size:12px;
     color: #A3A3A3;
@@ -54,6 +57,8 @@ export const ProductInfo = styled.div`
   .product-price{
     font-size:12px;
     color: #999;
+    height:20px;
+    line-height:20px;
     .product-red{
       font-size:18px;
       color:#F0615C;

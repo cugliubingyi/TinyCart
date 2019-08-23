@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {HeaderWrapper,Nav,Logo,CartButton} from "./style";
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 class Header extends Component{
@@ -12,7 +13,7 @@ class Header extends Component{
                             <Logo/>
                         </Link>
                         <Link to="/cart">
-                            <CartButton>购物车</CartButton>
+                            <CartButton><i className="iconfont icongouwuche"></i>购物车<span className="cart-item-num">{this.props.cartList.toJS().length}</span></CartButton>
                         </Link>
                     </Nav>
                 </HeaderWrapper>
@@ -21,4 +22,8 @@ class Header extends Component{
     }
 }
 
-export default Header;
+const mapState = (state) => ({
+    cartList:state.getIn(['cart','cartList'])
+});
+
+export default connect(mapState,null)(Header);
