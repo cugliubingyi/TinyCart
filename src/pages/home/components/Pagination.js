@@ -10,13 +10,13 @@ class Pagination extends PureComponent{
         if(homeList.toJS().length){
             for(let i = 1;i <= totalPage;i++){
                 pageList.push(
-                    <PaginationItem className={`pagination-num ${page===i?'pagination-active':''}`} key={i} onClick={() => handleChangePage(i)}>{i}</PaginationItem>
+                    <PaginationItem className={`pagination-num ${page === i ? 'pagination-active' : ''}`} key={i} onClick={() => handleChangePage(i)}>{i}</PaginationItem>
                 )
             }
         }
-        pageList.unshift(<PaginationItem key="prev" onClick={() => handleChangePage(page-1,totalPage)}>上一页</PaginationItem>);
+        pageList.unshift(<PaginationItem key="prev" onClick={() => handleChangePage(page - 1,totalPage)}>上一页</PaginationItem>);
         pageList.unshift(<PaginationItem key="first" onClick={() => handleChangePage(1)}>首页</PaginationItem>);
-        pageList.push(<PaginationItem key="next" onClick={() => handleChangePage(page+1,totalPage)}>下一页</PaginationItem>);
+        pageList.push(<PaginationItem key="next" onClick={() => handleChangePage(page + 1,totalPage)}>下一页</PaginationItem>);
         pageList.push(<PaginationItem key="last" onClick={() => handleChangePage(totalPage)}>尾页</PaginationItem>);
         return pageList;
     }

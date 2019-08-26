@@ -38,7 +38,7 @@ const mapDispatch = (dispatch) => ({
         if(count === '' || isNaN(count)){
             dispatch(actionCreators.changeInput(1,item));
         }else{
-            dispatch(actionCreators.changeInput(count<1?1:count,item));
+            dispatch(actionCreators.changeInput(count < 1 ? 1 : count,item));
         }
     },
     handleCheckBoxClick(item){

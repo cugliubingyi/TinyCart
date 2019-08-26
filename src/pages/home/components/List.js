@@ -9,7 +9,7 @@ class List extends PureComponent{
         let newList = homeList.toJS();
         let pageList = [];
         if(newList.length){
-            for(let i = (page - 1)*4;i < page*4;i++){
+            for(let i = (page - 1) * 4;i < page * 4;i++){
                 if(i < newList.length){
                     pageList.push(
                         <ListItem index={i}/>
