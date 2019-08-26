@@ -27,9 +27,8 @@ export const changeInput = (count,item) => ({
     item
 });
 
-export const changeCheckAll = (checkAll) => ({
-    type:constants.CHANGE_CHECK_ALL,
-    checkAll:!checkAll
+export const changeCheckAll = () => ({
+    type:constants.CHANGE_CHECK_ALL
 });
 
 export const changeCheckBox = (item) => ({

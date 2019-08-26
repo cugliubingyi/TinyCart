@@ -1,9 +1,9 @@
-import React,{Component} from 'react';
+import React,{PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {actionCreators} from '../store';
 import {PaginationWrapper,PaginationList,PaginationItem} from '../style';
 
-class Pagination extends Component{
+class Pagination extends PureComponent{
     getPaginationArea(){
         const {homeList,page,totalPage,handleChangePage} = this.props;
         let pageList = [];

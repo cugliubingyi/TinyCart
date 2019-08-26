@@ -2,8 +2,7 @@ import {fromJS} from 'immutable';
 import * as constants from './constants';
 
 const defaultState = fromJS({
-    cartList: [],
-    checkAll: false
+    cartList: []
 });
 
 export default (state = defaultState,action) => {
@@ -54,13 +53,6 @@ export default (state = defaultState,action) => {
                 }
             });
             return fromJS(newState4);
-        case constants.CHANGE_CHECK_ALL:
-            let newState5 = JSON.parse(JSON.stringify(state));
-            newState5.checkAll = action.checkAll;
-            newState5.cartList.forEach((item) => {
-                item.checked = action.checkAll
-            });
-            return fromJS(newState5);
         case constants.CHANGE_CHECK_BOX:
             let newState6 = JSON.parse(JSON.stringify(state));
             newState6.cartList.forEach((item) => {
@@ -68,8 +60,13 @@ export default (state = defaultState,action) => {
                     item.checked = action.checked;
                 }
             });
-            newState6.checkAll = newState6.cartList.every((item) => item.checked);
             return fromJS(newState6);
+        case constants.CHANGE_CHECK_ALL:
+            let newState7 = JSON.parse(JSON.stringify(state));
+            newState7.cartList.forEach((item) => {
+                item.checked = !item.checked;
+            });
+            return fromJS(newState7);
         default:
             return state;
     }

@@ -1,8 +1,8 @@
-import React,{Component} from 'react';
+import React,{PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {CartFooterWrapper} from '../style';
 
-class CartFooter extends Component{
+class CartFooter extends PureComponent{
     getFooterArea(){
         const {cartList} = this.props;
         const newList = cartList.toJS();

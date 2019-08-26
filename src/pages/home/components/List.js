@@ -1,9 +1,9 @@
-import React,{Component} from 'react';
+import React,{PureComponent} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import {ProductList,ProductItem,ProductPicWrapper,ProductInfo} from '../style';
+import {ProductList} from '../style';
+import ListItem from "./ListItem";
 
-class List extends Component{
+class List extends PureComponent{
     getProductArea(){
         const {homeList,page} = this.props;
         let newList = homeList.toJS();
@@ -12,17 +12,7 @@ class List extends Component{
             for(let i = (page - 1)*4;i < page*4;i++){
                 if(i < newList.length){
                     pageList.push(
-                        <ProductItem key={newList[i].id}>
-                            <Link className="product-link" to={`detail/${newList[i].id}`}>
-                                <ProductPicWrapper>
-                                    <img className="product-img" src={newList[i].imgUrl} alt=""/>
-                                </ProductPicWrapper>
-                                <ProductInfo>
-                                    <p className="product-name">{newList[i].name}</p>
-                                    <p className="product-price">￥ <span className="product-red">{newList[i].price + '.00'}</span></p>
-                                </ProductInfo>
-                            </Link>
-                        </ProductItem>
+                        <ListItem index={i}/>
                     )
                 }else{
                     break;
@@ -45,8 +35,7 @@ class List extends Component{
 
 const mapState = (state) => ({
     homeList:state.getIn(['home','homeList']),
-    page:state.getIn(['home','page']),
-    totalPage:state.getIn(['home','totalPage'])
+    page:state.getIn(['home','page'])
 });
 
 export default connect(mapState,null)(List);

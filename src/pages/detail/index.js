@@ -1,18 +1,19 @@
-import React,{Component} from 'react';
+import React,{PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {actionCreators} from './store';
 import {actionCreators as cartActionCreators} from '../cart/store';
 import {actionCreators as popUpActionCreators} from '../../base/popup/store';
 import PopUp from '../../base/popup';
-import {ProductWrapper,ProductPic,ProductInfo,ProductGrid,ProductGridItem,ProductAmount,ProductSubtract,ProductInput,ProductTip,ProductAdd,AddCartBtn} from './style';
+import Amount from '../../base/amount';
+import {ProductWrapper,ProductPic,ProductInfo,ProductGrid,ProductGridItem,ProductTip,AddCartBtn} from './style';
 
-class Detail extends Component{
+class Detail extends PureComponent{
     componentDidMount(){
         this.props.handleChangeDetail(this.props.match.params.id);
     }
 
     render(){
-        const {productInfo,count,couldSubmit,handleInputChange,handleChangeCount,handleAddCartBtnClick,show} = this.props;
+        const {productInfo,count,couldSubmit,handleAddCartBtnClick,show} = this.props;
         return(
             <div>
                 <ProductWrapper>
@@ -26,11 +27,7 @@ class Detail extends Component{
                             <ProductGridItem className="product-price">￥{productInfo.get('price') + '.00'}</ProductGridItem>
                             <ProductGridItem>数量</ProductGridItem>
                             <ProductGridItem className="product-num">
-                                <ProductAmount>
-                                    <ProductSubtract onClick={() => handleChangeCount(count-1)}>-</ProductSubtract>
-                                    <ProductInput onChange={handleInputChange} value={count}/>
-                                    <ProductAdd onClick={() => handleChangeCount(count+1)}>+</ProductAdd>
-                                </ProductAmount>
+                                <Amount type="detailAmount" count={count}/>
                                 {
                                     couldSubmit?
                                         null
@@ -42,7 +39,7 @@ class Detail extends Component{
                     </ProductInfo>
                     {
                         show?
-                            <PopUp/>
+                            <PopUp text="添加购物车成功" leftText="继续逛逛" rightText="去购物车结算"/>
                             :null
 
                     }
@@ -63,26 +60,6 @@ const mapDispatch = (dispatch) => ({
     handleChangeDetail(id){
         dispatch(actionCreators.getProductInfo(id));
         dispatch(actionCreators.changeCount(1));
-    },
-    handleInputChange(e){
-        let count = e.target.value;
-
-        if(count === ''){
-            dispatch(actionCreators.changeCount(count));
-            dispatch(actionCreators.changeCouldSubmit(false));
-        }else{
-            if(isNaN(count)){
-                dispatch(actionCreators.changeCount(1));
-                dispatch(actionCreators.changeCouldSubmit(true));
-            }else{
-                dispatch(actionCreators.changeCount(count<1?1:count));
-                dispatch(actionCreators.changeCouldSubmit(true));
-            }
-        }
-    },
-    handleChangeCount(count){
-        dispatch(actionCreators.changeCount(count<1?1:count));
-        dispatch(actionCreators.changeCouldSubmit(true));
     },
     handleAddCartBtnClick(couldSubmit,productInfo,count){
         if(couldSubmit){
