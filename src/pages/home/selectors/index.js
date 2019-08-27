@@ -14,7 +14,7 @@ export const getProductArea = createSelector(
         let newList = homeList.toJS();
         let pageList = [];
         if(newList.length){
-            for(let i = (page - 1) * itemPerPage;i < page * itemPerPage;i++){
+            for(let i = (page - 1) * (itemPerPage > 4 ? 4 : itemPerPage);i < page * (itemPerPage > 4 ? 4 : itemPerPage);i++){
                 if(i < newList.length){
                     pageList.push(
                         <ListItemContainer index={i}/>

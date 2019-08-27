@@ -6,7 +6,7 @@ import {itemPerPage} from "../selectors";
 const changeHomeInfo = (result) => ({
     type:constants.CHANGE_HOME_INFO,
     list:fromJS(result.homeList),
-    totalPage:Math.ceil((result.homeList.length)/itemPerPage)
+    totalPage:Math.ceil((result.homeList.length)/(itemPerPage > 4 ? 4 : itemPerPage))
 });
 
 export const changePage = (page) => ({
