@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import {actionCreators} from '../store';
 import CartHeader from '../components/CartHeader';
+import {getCartList} from '../selectors';
 
 const mapState = (state) => ({
-    cartList:state.getIn(['cart','cartList']),
-    checkAll:state.getIn(['cart','checkAll'])
+    cartList:getCartList(state)
 });
 
 const mapDispatch = (dispatch) => ({

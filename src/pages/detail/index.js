@@ -6,6 +6,7 @@ import {actionCreators as popUpActionCreators} from '../../base/popup/store';
 import PopUp from '../../base/popup';
 import Amount from '../../base/amount';
 import {ProductWrapper,ProductPic,ProductInfo,ProductGrid,ProductGridItem,ProductTip,AddCartBtn} from './style';
+import {getProductInfo,getCount,getCouldSubmit,getShow} from "./selectors";
 
 class Detail extends PureComponent{
     componentDidMount(){
@@ -50,10 +51,10 @@ class Detail extends PureComponent{
 }
 
 const mapState = (state) => ({
-    productInfo:state.getIn(['detail','productInfo']),
-    count:state.getIn(['detail','count']),
-    couldSubmit:state.getIn(['detail','couldSubmit']),
-    show:state.getIn(['popup','show'])
+    productInfo:getProductInfo(state),
+    count:getCount(state),
+    couldSubmit:getCouldSubmit(state),
+    show:getShow(state)
 });
 
 const mapDispatch = (dispatch) => ({

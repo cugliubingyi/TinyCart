@@ -1,11 +1,12 @@
 import * as constants from './constants';
 import axios from 'axios';
 import {fromJS} from 'immutable';
+import {itemPerPage} from "../selectors";
 
 const changeHomeInfo = (result) => ({
     type:constants.CHANGE_HOME_INFO,
     list:fromJS(result.homeList),
-    totalPage:Math.ceil((result.homeList.length)/4)
+    totalPage:Math.ceil((result.homeList.length)/itemPerPage)
 });
 
 export const changePage = (page) => ({
