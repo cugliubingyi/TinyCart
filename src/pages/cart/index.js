@@ -1,6 +1,6 @@
 import React from 'react';
-import CartHeader from './components/CartHeader';
-import CartList from './components/CartList';
+import CartHeaderContainer from './containers/CartHeaderContainer';
+import CartListContainer from './containers/CartListContainer';
 import CartFooter from './components/CartFooter';
 import {CartWrapper} from './style';
 
@@ -8,8 +8,8 @@ const Cart = () => {
     return(
         <div>
             <CartWrapper>
-                <CartHeader/>
-                <CartList/>
+                <CartHeaderContainer/>
+                <CartListContainer/>
                 <CartFooter/>
             </CartWrapper>
         </div>

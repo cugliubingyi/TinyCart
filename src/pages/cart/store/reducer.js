@@ -64,7 +64,7 @@ export default (state = defaultState,action) => {
         case constants.CHANGE_CHECK_ALL:
             let newState7 = JSON.parse(JSON.stringify(state));
             newState7.cartList.forEach((item) => {
-                item.checked = !item.checked;
+                item.checked = !action.checkAll;
             });
             return fromJS(newState7);
         default:

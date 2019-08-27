@@ -1,6 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {actionCreators} from '../store';
 import {CartHeaderWrapper,CartHeaderCheckAll} from '../style';
 
 const CartHeader = (props) => {
@@ -10,7 +8,7 @@ const CartHeader = (props) => {
             {
                 props.cartList.toJS().length?
                     <CartHeaderWrapper>
-                        <CartHeaderCheckAll><i className={`iconfont ${checkAll?'iconxuankuang':'iconxuankuang-copy'}`} onClick={() => props.handleCheckAllClick()}></i>全选</CartHeaderCheckAll>
+                        <CartHeaderCheckAll><i className={`iconfont ${checkAll?'iconxuankuang':'iconxuankuang-copy'}`} onClick={() => props.handleCheckAllClick(checkAll)}></i>全选</CartHeaderCheckAll>
                         <div className="product-desc">商品信息</div>
                         <div className="product-price">单价</div>
                         <div className="product-count">数量</div>
@@ -23,15 +21,4 @@ const CartHeader = (props) => {
     )
 };
 
-const mapState = (state) => ({
-    cartList:state.getIn(['cart','cartList']),
-    checkAll:state.getIn(['cart','checkAll'])
-});
-
-const mapDispatch = (dispatch) => ({
-    handleCheckAllClick(){
-        dispatch(actionCreators.changeCheckAll());
-    }
-});
-
-export default connect(mapState,mapDispatch)(CartHeader);
+export default CartHeader;

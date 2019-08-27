@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {ProductItem, ProductInfo, ProductPicWrapper} from "../style";
 
@@ -20,8 +19,4 @@ const ListItem = (props) => {
     )
 };
 
-const mapState = (state) => ({
-    homeList:state.getIn(['home','homeList'])
-});
-
-export default connect(mapState,null)(ListItem);
+export default ListItem;

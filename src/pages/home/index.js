@@ -1,7 +1,7 @@
 import React,{PureComponent} from 'react';
 import {connect} from 'react-redux';
 import {actionCreators} from './store';
-import List from './components/List';
+import ListContainer from './containers/ListContainer';
 import Pagination from './components/Pagination';
 import {HomeWrapper} from './style';
 
@@ -14,7 +14,7 @@ class Home extends PureComponent{
         return(
             <div>
                 <HomeWrapper>
-                    <List/>
+                    <ListContainer/>
                     <Pagination/>
                 </HomeWrapper>
             </div>
