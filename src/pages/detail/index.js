@@ -1,77 +1,102 @@
-import React,{PureComponent} from 'react';
-import {connect} from 'react-redux';
-import {actionCreators} from './store';
-import {actionCreators as cartActionCreators} from '../cart/store';
-import {actionCreators as popUpActionCreators} from '../../base/popup/store';
-import PopUp from '../../base/popup';
-import Amount from '../../base/amount';
-import {ProductWrapper,ProductPic,ProductInfo,ProductGrid,ProductGridItem,ProductTip,AddCartBtn} from './style';
-import {getProductInfo,getCount,getCouldSubmit,getShow} from "./selectors";
+import React, { PureComponent } from "react";
+import { connect } from "react-redux";
+import { actionCreators } from "./store";
+import { actionCreators as cartActionCreators } from "../cart/store";
+import { actionCreators as popUpActionCreators } from "../../base/popup/store";
+import PopUp from "../../base/popup";
+import Amount from "../../base/amount";
+import {
+  ProductWrapper,
+  ProductPic,
+  ProductInfo,
+  ProductGrid,
+  ProductGridItem,
+  ProductTip,
+  AddCartBtn
+} from "./style";
+import { getProductInfo, getCount, getCouldSubmit, getShow } from "./selectors";
 
-class Detail extends PureComponent{
-    componentDidMount(){
-        this.props.handleChangeDetail(this.props.match.params.id);
-    }
+class Detail extends PureComponent {
+  componentDidMount() {
+    this.props.handleChangeDetail(this.props.match.params.id);
+  }
 
-    render(){
-        const {productInfo,count,couldSubmit,handleAddCartBtnClick,show} = this.props;
-        return(
-            <div>
-                <ProductWrapper>
-                    <ProductPic>
-                        <img className="product-img" src={productInfo.get('imgUrl')} alt=""/>
-                    </ProductPic>
-                    <ProductInfo>
-                        <p className="product-desc">{productInfo.get('desc')}</p>
-                        <ProductGrid>
-                            <ProductGridItem>价格</ProductGridItem>
-                            <ProductGridItem className="product-price">￥{productInfo.get('price') + '.00'}</ProductGridItem>
-                            <ProductGridItem>数量</ProductGridItem>
-                            <ProductGridItem className="product-num">
-                                <Amount type="detailAmount" count={count}/>
-                                {
-                                    couldSubmit?
-                                        null
-                                        :<ProductTip>请填写正确的宝贝数量！</ProductTip>
-                                }
-                            </ProductGridItem>
-                            <AddCartBtn onClick={() => handleAddCartBtnClick(couldSubmit,productInfo,count)}>加入购物车</AddCartBtn>
-                        </ProductGrid>
-                    </ProductInfo>
-                    {
-                        show?
-                            <PopUp text="添加购物车成功" leftText="继续逛逛" rightText="去购物车结算"/>
-                            :null
-
-                    }
-                </ProductWrapper>
-            </div>
-        )
-    }
+  render() {
+    const {
+      productInfo,
+      count,
+      couldSubmit,
+      handleAddCartBtnClick,
+      show
+    } = this.props;
+    return (
+      <div>
+        <ProductWrapper>
+          <ProductPic>
+            <img
+              className="product-img"
+              src={productInfo.get("imgUrl")}
+              alt=""
+            />
+          </ProductPic>
+          <ProductInfo>
+            <p className="product-desc">{productInfo.get("desc")}</p>
+            <ProductGrid>
+              <ProductGridItem>价格</ProductGridItem>
+              <ProductGridItem className="product-price">
+                ￥{productInfo.get("price") + ".00"}
+              </ProductGridItem>
+              <ProductGridItem>数量</ProductGridItem>
+              <ProductGridItem className="product-num">
+                <Amount type="detailAmount" count={count} />
+                {couldSubmit ? null : (
+                  <ProductTip>请填写正确的宝贝数量！</ProductTip>
+                )}
+              </ProductGridItem>
+              <AddCartBtn
+                onClick={() =>
+                  handleAddCartBtnClick(couldSubmit, productInfo, count)
+                }
+              >
+                加入购物车
+              </AddCartBtn>
+            </ProductGrid>
+          </ProductInfo>
+          {show ? (
+            <PopUp
+              text="添加购物车成功"
+              leftText="继续逛逛"
+              rightText="去购物车结算"
+            />
+          ) : null}
+        </ProductWrapper>
+      </div>
+    );
+  }
 }
 
-const mapState = (state) => ({
-    productInfo:getProductInfo(state),
-    count:getCount(state),
-    couldSubmit:getCouldSubmit(state),
-    show:getShow(state)
+const mapState = state => ({
+  productInfo: getProductInfo(state),
+  count: getCount(state),
+  couldSubmit: getCouldSubmit(state),
+  show: getShow(state)
 });
 
-const mapDispatch = (dispatch) => ({
-    handleChangeDetail(id){
-        dispatch(actionCreators.getProductInfo(id));
-        dispatch(actionCreators.changeCount(1));
-    },
-    handleAddCartBtnClick(couldSubmit,productInfo,count){
-        if(couldSubmit){
-            let productItem = productInfo.toJS();
-            const totalPrice = productItem.price*count;
-            let checked = false;
-            productItem = {count,totalPrice,checked,...productItem};
-            dispatch(cartActionCreators.addCartItem(productItem));
-            dispatch(popUpActionCreators.changeShowPopUp());
-        }
+const mapDispatch = dispatch => ({
+  handleChangeDetail(id) {
+    dispatch(actionCreators.getProductInfo(id));
+    dispatch(actionCreators.changeCount(1));
+  },
+  handleAddCartBtnClick(couldSubmit, productInfo, count) {
+    if (couldSubmit) {
+      let productItem = productInfo.toJS();
+      const totalPrice = productItem.price * count;
+      let checked = false;
+      productItem = { count, totalPrice, checked, ...productItem };
+      dispatch(cartActionCreators.addCartItem(productItem));
+      dispatch(popUpActionCreators.changeShowPopUp());
     }
+  }
 });
 
-export default connect(mapState,mapDispatch)(Detail);
+export default connect(mapState, mapDispatch)(Detail);
