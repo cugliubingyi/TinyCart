@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import CartList from "../components/CartList";
-import { getCartList, getCartArea } from "../selectors";
+import { getCartList, getCartArea } from "redux/selectors/cartSelectors";
 
 const mapState = state => ({
   cartList: getCartList(state),

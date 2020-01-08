@@ -15,7 +15,7 @@ const Header = props => {
             <CartButton>
               <i className="iconfont icongouwuche"></i>购物车
               <span className="cart-item-num">
-                {props.cartList.toJS().length}
+                {props.cartList.length}
               </span>
             </CartButton>
           </Link>
@@ -26,7 +26,7 @@ const Header = props => {
 };
 
 const mapState = state => ({
-  cartList: state.getIn(["cart", "cartList"])
+  cartList: state.cart.cartList
 });
 
 export default connect(mapState, null)(Header);

@@ -1,8 +1,11 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "./store";
-import { actionCreators as cartActionCreators } from "../cart/store";
-import { actionCreators as popUpActionCreators } from "../../base/popup/store";
+import {
+  getProductInfo,
+  changeCount
+} from "redux/reducers/detail";
+import { addCartItem } from "redux/reducers/cart";
+import { showPopUp } from "redux/reducers/popup";
 import PopUp from "../../base/popup";
 import Amount from "../../base/amount";
 import {
@@ -14,7 +17,7 @@ import {
   ProductTip,
   AddCartBtn
 } from "./style";
-import { getProductInfo, getCount, getCouldSubmit, getShow } from "./selectors";
+import { getProductInfo as getProductInfoSelector, getCount, getCouldSubmit, getShow } from "redux/selectors/detailSelectors";
 
 class Detail extends PureComponent {
   componentDidMount() {
@@ -35,16 +38,16 @@ class Detail extends PureComponent {
           <ProductPic>
             <img
               className="product-img"
-              src={productInfo.get("imgUrl")}
+              src={productInfo.imgUrl}
               alt=""
             />
           </ProductPic>
           <ProductInfo>
-            <p className="product-desc">{productInfo.get("desc")}</p>
+            <p className="product-desc">{productInfo.desc}</p>
             <ProductGrid>
               <ProductGridItem>价格</ProductGridItem>
               <ProductGridItem className="product-price">
-                ￥{productInfo.get("price") + ".00"}
+                ￥{productInfo.price + ".00"}
               </ProductGridItem>
               <ProductGridItem>数量</ProductGridItem>
               <ProductGridItem className="product-num">
@@ -76,7 +79,7 @@ class Detail extends PureComponent {
 }
 
 const mapState = state => ({
-  productInfo: getProductInfo(state),
+  productInfo: getProductInfoSelector(state),
   count: getCount(state),
   couldSubmit: getCouldSubmit(state),
   show: getShow(state)
@@ -84,17 +87,17 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   handleChangeDetail(id) {
-    dispatch(actionCreators.getProductInfo(id));
-    dispatch(actionCreators.changeCount(1));
+    dispatch(getProductInfo(id));
+    dispatch(changeCount(1));
   },
   handleAddCartBtnClick(couldSubmit, productInfo, count) {
     if (couldSubmit) {
-      let productItem = productInfo.toJS();
+      let productItem = productInfo;
       const totalPrice = productItem.price * count;
       let checked = false;
       productItem = { count, totalPrice, checked, ...productItem };
-      dispatch(cartActionCreators.addCartItem(productItem));
-      dispatch(popUpActionCreators.changeShowPopUp());
+      dispatch(addCartItem(productItem));
+      dispatch(showPopUp());
     }
   }
 });

@@ -1,28 +1,34 @@
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
+import {
+  deleteCartItem,
+  changeSubtractClick,
+  changeAddClick,
+  changeInput,
+  changeCheckBox
+} from "redux/reducers/cart";
 import CartListItem from "../components/CartListItem";
 
 const mapDispatch = dispatch => ({
   handleDeleteCartItem(item) {
-    dispatch(actionCreators.deleteCartItem(item));
+    dispatch(deleteCartItem(item));
   },
   handleSubtractClick(item) {
-    dispatch(actionCreators.changeSubtractClick(item));
+    dispatch(changeSubtractClick(item));
   },
   handleAddClick(item) {
-    dispatch(actionCreators.changeAddClick(item));
+    dispatch(changeAddClick(item));
   },
   handleInputChange(e, item) {
     let count = e.target.value;
 
     if (count === "" || isNaN(count)) {
-      dispatch(actionCreators.changeInput(1, item));
+      dispatch(changeInput(1, item));
     } else {
-      dispatch(actionCreators.changeInput(count < 1 ? 1 : count, item));
+      dispatch(changeInput(count < 1 ? 1 : count, item));
     }
   },
   handleCheckBoxClick(item) {
-    dispatch(actionCreators.changeCheckBox(item));
+    dispatch(changeCheckBox(item));
   }
 });
 

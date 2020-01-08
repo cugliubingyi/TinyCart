@@ -1,7 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { actionCreators as detailActionCreators } from "../../pages/detail/store";
-import { actionCreators as cartActionCreators } from "../../pages/cart/store";
+import {
+  changeCount,
+  changeCouldSubmit
+} from "redux/reducers/detail";
+import {
+  changeInput,
+  changeSubtractClick,
+  changeAddClick
+} from "redux/reducers/cart";
 import {
   ProductAmount,
   ProductSubtract,
@@ -14,7 +21,9 @@ const Amount = props => {
     return (
       <ProductAmount className="detail-amount">
         <ProductSubtract
-          onClick={() => props.handleChangeCount(props.count - 1)}
+          onClick={() =>
+            props.handleChangeCount((parseInt(props.count) || 0) - 1)
+          }
         >
           -
         </ProductSubtract>
@@ -22,7 +31,11 @@ const Amount = props => {
           onChange={props.handleDetailInputChange}
           value={props.count}
         />
-        <ProductAdd onClick={() => props.handleChangeCount(props.count + 1)}>
+        <ProductAdd
+          onClick={() =>
+            props.handleChangeCount((parseInt(props.count) || 0) + 1)
+          }
+        >
           +
         </ProductAdd>
       </ProductAmount>
@@ -34,7 +47,9 @@ const Amount = props => {
           -
         </ProductSubtract>
         <ProductInput
-          onChange={e => props.handleCartInputChange(e, props.item)}
+          onChange={e => {
+            props.handleCartInputChange(e, props.item)
+          }}
           value={props.item.count}
         />
         <ProductAdd onClick={() => props.handleAddClick(props.item)}>
@@ -50,35 +65,37 @@ const mapDispatch = dispatch => ({
     let count = e.target.value;
 
     if (count === "") {
-      dispatch(detailActionCreators.changeCount(count));
-      dispatch(detailActionCreators.changeCouldSubmit(false));
+      dispatch(changeCount(count));
+      dispatch(changeCouldSubmit(false));
     } else {
+      count = parseInt(count);
       if (isNaN(count)) {
-        dispatch(detailActionCreators.changeCount(1));
-        dispatch(detailActionCreators.changeCouldSubmit(true));
+        dispatch(changeCount(1));
+        dispatch(changeCouldSubmit(true));
       } else {
-        dispatch(detailActionCreators.changeCount(count < 1 ? 1 : count));
-        dispatch(detailActionCreators.changeCouldSubmit(true));
+        dispatch(changeCount(count < 1 ? 1 : count));
+        dispatch(changeCouldSubmit(true));
       }
     }
   },
   handleChangeCount(count) {
-    dispatch(detailActionCreators.changeCount(count < 1 ? 1 : count));
-    dispatch(detailActionCreators.changeCouldSubmit(true));
+    dispatch(changeCount(count < 1 ? 1 : count));
+    dispatch(changeCouldSubmit(true));
   },
   handleSubtractClick(item) {
-    dispatch(cartActionCreators.changeSubtractClick(item));
+    dispatch(changeSubtractClick(item));
   },
   handleAddClick(item) {
-    dispatch(cartActionCreators.changeAddClick(item));
+    dispatch(changeAddClick(item));
   },
   handleCartInputChange(e, item) {
     let count = e.target.value;
 
-    if (count === "" || isNaN(count)) {
-      dispatch(cartActionCreators.changeInput(1, item));
+    if (count === "") {
+      dispatch(changeInput(1, item));
     } else {
-      dispatch(cartActionCreators.changeInput(count < 1 ? 1 : count, item));
+      count = parseInt(count);
+      dispatch(changeInput(count < 1 ? 1 : count, item));
     }
   }
 });

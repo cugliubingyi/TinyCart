@@ -7,7 +7,8 @@ import Header from "./common/header";
 import Home from "./pages/home";
 import Cart from "./pages/cart";
 import Detail from "./pages/detail";
-import store from "./store";
+// import store from "./store";
+import store from "./redux/store";
 
 class App extends Component {
   render() {

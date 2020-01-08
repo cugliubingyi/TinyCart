@@ -11,15 +11,14 @@ export const itemPerPage = 4;
 export const getProductArea = createSelector(
   [getHomeList, getPage],
   (homeList, page) => {
-    let newList = homeList.toJS();
     let pageList = [];
-    if (newList.length) {
+    if (homeList.length) {
       for (
         let i = (page - 1) * (itemPerPage > 4 ? 4 : itemPerPage);
         i < page * (itemPerPage > 4 ? 4 : itemPerPage);
         i++
       ) {
-        if (i < newList.length) {
+        if (i < homeList.length) {
           pageList.push(<ListItemContainer index={i} />);
         } else {
           break;
