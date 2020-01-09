@@ -5,7 +5,7 @@ import {
   getPage,
   getProductArea
 } from "redux/selectors/homeSelectors";
-import { ProductList } from "../style";
+import { ProductList } from "containers/Home/style";
 
 const List = props => {
   return (

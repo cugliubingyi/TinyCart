@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import { Globalstyle } from "./style";
-import { Iconfontstyle } from "./statics/iconfont/iconfont";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import Header from "./common/header";
-import Home from "./pages/home";
-import Cart from "./pages/cart";
-import Detail from "./pages/detail";
-// import store from "./store";
-import store from "./redux/store";
+
+import { Globalstyle } from "./style";
+import { Iconfontstyle } from "./statics/iconfont/iconfont";
+
+import Header from "common/header";
+import Home from "containers/Home";
+import Cart from "containers/Cart";
+import Detail from "containers/Detail";
+import store from "redux/store";
 
 class App extends Component {
   render() {

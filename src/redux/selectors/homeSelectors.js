@@ -1,5 +1,5 @@
 import React from "react";
-import ListItemContainer from "../../pages/home/containers/ListItemContainer";
+import ListItem from "../../pages/home/components/ListItem";
 import { createSelector } from "reselect";
 
 export const getHomeList = state => state.home.homeList;
@@ -19,7 +19,7 @@ export const getProductArea = createSelector(
         i++
       ) {
         if (i < homeList.length) {
-          pageList.push(<ListItemContainer key={i} index={i} />);
+          pageList.push(<ListItem key={i} index={i} />);
         } else {
           break;
         }
