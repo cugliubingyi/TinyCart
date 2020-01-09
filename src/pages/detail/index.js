@@ -6,8 +6,8 @@ import {
 } from "redux/reducers/detail";
 import { addCartItem } from "redux/reducers/cart";
 import { showPopUp } from "redux/reducers/popup";
-import PopUp from "../../base/popup";
-import Amount from "../../base/amount";
+import PopUp from "components/common/popup";
+import Amount from "components/common/amount";
 import {
   ProductWrapper,
   ProductPic,

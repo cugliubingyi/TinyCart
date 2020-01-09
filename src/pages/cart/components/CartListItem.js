@@ -7,7 +7,7 @@ import {
   changeInput,
   changeCheckBox
 } from "redux/reducers/cart";
-import Amount from "../../../base/amount";
+import Amount from "components/common/amount";
 import { CartItem } from "../style";
 
 const CartListItem = props => {
