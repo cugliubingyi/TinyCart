@@ -8,6 +8,7 @@ import { addCartItem } from "redux/reducers/cart";
 import { showPopUp } from "redux/reducers/popup";
 import PopUp from "base/popup";
 import Amount from "base/amount";
+import SiteLayout from "layout/SiteLayout";
 import {
   ProductWrapper,
   ProductPic,
@@ -33,7 +34,7 @@ class Detail extends PureComponent {
       show
     } = this.props;
     return (
-      <div>
+      <SiteLayout>
         <ProductWrapper>
           <ProductPic>
             <img
@@ -73,7 +74,7 @@ class Detail extends PureComponent {
             />
           ) : null}
         </ProductWrapper>
-      </div>
+      </SiteLayout>
     );
   }
 }
