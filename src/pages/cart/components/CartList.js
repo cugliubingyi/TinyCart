@@ -4,7 +4,7 @@ import { CartListWrapper } from "../style";
 const CartList = props => {
   return (
     <div>
-      {props.cartList.toJS().length ? (
+      {props.cartList.length ? (
         <CartListWrapper>{props.cartArea}</CartListWrapper>
       ) : (
         <CartListWrapper className="empty">

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import List from "../components/List";
-import { getHomeList, getPage, getProductArea } from "../selectors";
+import { getHomeList, getPage, getProductArea } from "redux/selectors/homeSelectors";
 
 const mapState = state => ({
   homeList: getHomeList(state),

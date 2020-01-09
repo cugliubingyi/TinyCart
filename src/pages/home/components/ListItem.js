@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ProductItem, ProductInfo, ProductPicWrapper } from "../style";
 
 const ListItem = props => {
-  const newList = props.homeList.toJS();
+  const newList = props.homeList;
   return (
     <ProductItem key={newList[props.index].id}>
       <Link className="product-link" to={`detail/${newList[props.index].id}`}>

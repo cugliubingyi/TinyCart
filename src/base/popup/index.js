@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "./store";
+import { hidePopUp } from "redux/reducers/popup";
 import { PopUpMask, PopUpWrapper } from "./style";
 import { Link } from "react-router-dom";
 
@@ -26,7 +26,7 @@ const PopUp = props => {
 
 const mapDispatch = dispatch => ({
   handleHidePopUp() {
-    dispatch(actionCreators.changeHidePopUp());
+    dispatch(hidePopUp());
   }
 });
 

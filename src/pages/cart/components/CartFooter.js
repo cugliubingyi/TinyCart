@@ -5,13 +5,12 @@ import { CartFooterWrapper } from "../style";
 class CartFooter extends PureComponent {
   getFooterArea() {
     const { cartList } = this.props;
-    const newList = cartList.toJS();
-    if (newList.length) {
+    if (cartList.length) {
       return (
         <CartFooterWrapper>
           <div className="cart-footer-close">去结算</div>
           <div className="cart-footer-total">
-            ￥{this.getFooterTotal(newList) + ".00"}
+            ￥{this.getFooterTotal(cartList) + ".00"}
           </div>
         </CartFooterWrapper>
       );
@@ -36,7 +35,7 @@ class CartFooter extends PureComponent {
 }
 
 const mapState = state => ({
-  cartList: state.getIn(["cart", "cartList"])
+  cartList: state.cart.cartList
 });
 
 export default connect(mapState, null)(CartFooter);

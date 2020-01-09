@@ -2,10 +2,10 @@ import React from "react";
 import { CartHeaderWrapper, CartHeaderCheckAll } from "../style";
 
 const CartHeader = props => {
-  const checkAll = props.cartList.toJS().every(item => item.checked === true);
+  const checkAll = props.cartList.every(item => item.checked === true);
   return (
     <div>
-      {props.cartList.toJS().length ? (
+      {props.cartList.length ? (
         <CartHeaderWrapper>
           <CartHeaderCheckAll>
             <i

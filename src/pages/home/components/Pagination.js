@@ -1,13 +1,13 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
+import { changePage } from "redux/reducers/home";
 import { PaginationWrapper, PaginationList, PaginationItem } from "../style";
 
 class Pagination extends PureComponent {
   getPaginationArea() {
     const { homeList, page, totalPage, handleChangePage } = this.props;
     let pageList = [];
-    if (homeList.toJS().length) {
+    if (homeList.length) {
       for (let i = 1; i <= totalPage; i++) {
         pageList.push(
           <PaginationItem
@@ -63,9 +63,9 @@ class Pagination extends PureComponent {
 }
 
 const mapState = state => ({
-  homeList: state.getIn(["home", "homeList"]),
-  page: state.getIn(["home", "page"]),
-  totalPage: state.getIn(["home", "totalPage"])
+  homeList: state.home.homeList,
+  page: state.home.page,
+  totalPage: state.home.totalPage
 });
 
 const mapDispatch = dispatch => ({
@@ -75,7 +75,7 @@ const mapDispatch = dispatch => ({
     } else if (page > totalPage) {
       page = totalPage;
     }
-    dispatch(actionCreators.changePage(page));
+    dispatch(changePage(page));
   }
 });
 

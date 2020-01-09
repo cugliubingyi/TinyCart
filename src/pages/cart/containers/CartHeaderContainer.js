@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import { actionCreators } from "../store";
+import { changeCheckAll } from "redux/reducers/cart";
 import CartHeader from "../components/CartHeader";
-import { getCartList } from "../selectors";
+import { getCartList } from "redux/selectors/cartSelectors";
 
 const mapState = state => ({
   cartList: getCartList(state)
@@ -9,7 +9,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   handleCheckAllClick(checkAll) {
-    dispatch(actionCreators.changeCheckAll(checkAll));
+    dispatch(changeCheckAll(checkAll));
   }
 });
 
