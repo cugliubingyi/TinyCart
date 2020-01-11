@@ -1,8 +1,9 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { getHomeList } from "redux/reducers/home";
-import List from "./components/List";
-import Pagination from "./components/Pagination";
+import List from "components/home/List";
+import Pagination from "components/home/Pagination";
+import SiteLayout from "layout/SiteLayout";
 import { HomeWrapper } from "./style";
 
 class Home extends PureComponent {
@@ -12,12 +13,12 @@ class Home extends PureComponent {
 
   render() {
     return (
-      <div>
+      <SiteLayout>
         <HomeWrapper>
           <List />
           <Pagination />
         </HomeWrapper>
-      </div>
+      </SiteLayout>
     );
   }
 }

@@ -1,7 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { ProductItem, ProductInfo, ProductPicWrapper } from "../style";
+import {
+  ProductItem,
+  ProductInfo,
+  ProductPicWrapper
+} from "containers/Home/style";
 
 const ListItem = props => {
   const newList = props.homeList;

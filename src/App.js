@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { Globalstyle } from "./style";
-import { Iconfontstyle } from "./statics/iconfont/iconfont";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import Header from "./common/header";
-import Home from "./pages/home";
-import Cart from "./pages/cart";
-import Detail from "./pages/detail";
-// import store from "./store";
-import store from "./redux/store";
+
+import { Globalstyle } from "./style";
+import { Iconfontstyle } from "./statics/iconfont/iconfont";
+
+import Home from "containers/Home";
+import Cart from "containers/Cart";
+import Detail from "containers/Detail";
+import store from "redux/store";
 
 class App extends Component {
   render() {
@@ -18,7 +18,6 @@ class App extends Component {
           <div>
             <Globalstyle />
             <Iconfontstyle />
-            <Header />
             <Route path="/" component={Home} exact></Route>
             <Route path="/cart" component={Cart} exact></Route>
             <Route path="/detail/:id" component={Detail} exact></Route>

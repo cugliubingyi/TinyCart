@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { changeCheckAll } from "redux/reducers/cart";
 import { getCartList } from "redux/selectors/cartSelectors";
-import { CartHeaderWrapper, CartHeaderCheckAll } from "../style";
+import { CartHeaderWrapper, CartHeaderCheckAll } from "containers/Cart/style";
 
 const CartHeader = props => {
   const checkAll = props.cartList.every(item => item.checked === true);

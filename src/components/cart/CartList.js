@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getCartList, getCartArea } from "redux/selectors/cartSelectors";
-import { CartListWrapper } from "../style";
+import { CartListWrapper } from "containers/Cart/style";
 
 const CartList = props => {
   return (
