@@ -1,5 +1,5 @@
 import React from "react";
-import ListItem from "../../pages/home/components/ListItem";
+import ListItem from "components/home/ListItem";
 import { createSelector } from "reselect";
 
 export const getHomeList = state => state.home.homeList;

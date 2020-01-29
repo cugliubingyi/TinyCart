@@ -1,5 +1,5 @@
 import React from "react";
-import CartListItem from "../../pages/cart/components/CartListItem";
+import CartListItem from "components/cart/CartListItem";
 import { createSelector } from "reselect";
 
 export const getCartList = state => state.cart.cartList;
