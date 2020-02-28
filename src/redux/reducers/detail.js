@@ -13,11 +13,11 @@ const detailSlice = createSlice({
       state.productInfo = action.payload;
     },
 
-    changeCountSuccess(state, action) {
+    changeCount(state, action) {
       state.count = action.payload;
     },
 
-    changeCouldSubmitSuccess(state, action) {
+    changeCouldSubmit(state, action) {
       state.couldSubmit = action.payload;
     }
   }
@@ -33,30 +33,16 @@ const getProductInfo = id => {
   };
 };
 
-const changeCount = count => {
-  return dispatch => {
-    dispatch(changeCountSuccess(count));
-  };
-};
-
-const changeCouldSubmit = couldSubmit => {
-  return dispatch => {
-    dispatch(changeCouldSubmitSuccess(couldSubmit));
-  }
-}
-
 const { actions, reducer } = detailSlice;
 
 export const {
   changeProductInfoSuccess,
-  changeCountSuccess,
-  changeCouldSubmitSuccess
+  changeCount,
+  changeCouldSubmit
 } = actions;
 
 export {
-  getProductInfo,
-  changeCount,
-  changeCouldSubmit
+  getProductInfo
 };
 
 export default reducer;

@@ -6,7 +6,7 @@ const cartSlice = createSlice({
     cartList: []
   },
   reducers: {
-    addCartItemSuccess(state, action) {
+    addCartItem(state, action) {
       if (state.cartList.some(item => item.desc === action.payload.desc)) {
         state.cartList.forEach(item => {
           if (item.desc === action.payload.desc) {
@@ -19,7 +19,7 @@ const cartSlice = createSlice({
       }
     },
 
-    deleteCartItemSuccess(state, action) {
+    deleteCartItem(state, action) {
       if (state.cartList.some(item => item.desc === action.payload.desc)) {
         state.cartList = state.cartList.filter(
           item => item.desc !== action.payload.desc
@@ -27,7 +27,7 @@ const cartSlice = createSlice({
       }
     },
 
-    changeSubtractClickSuccess(state, action) {
+    changeSubtractClick(state, action) {
       state.cartList.forEach(item => {
         if (item.desc === action.payload.desc) {
           item.count = item.count === 1 ? 1 : item.count - 1;
@@ -36,7 +36,7 @@ const cartSlice = createSlice({
       });
     },
 
-    changeAddClickSuccess(state, action) {
+    changeAddClick(state, action) {
       state.cartList.forEach(item => {
         if (item.desc === action.payload.desc) {
           item.count++;
@@ -54,7 +54,7 @@ const cartSlice = createSlice({
       });
     },
 
-    changeCheckBoxSuccess(state, action) {
+    changeCheckBox(state, action) {
       state.cartList.forEach(item => {
         if (item.desc === action.payload.desc) {
           item.checked = !action.payload.checked;
@@ -62,7 +62,7 @@ const cartSlice = createSlice({
       });
     },
 
-    changeCheckAllSuccess(state, action) {
+    changeCheckAll(state, action) {
       state.cartList.forEach(item => {
         item.checked = !action.payload;
       });
@@ -70,68 +70,26 @@ const cartSlice = createSlice({
   }
 });
 
-const addCartItem = item => {
-  return dispatch => {
-    dispatch(addCartItemSuccess(item));
-  };
-};
-
-const deleteCartItem = item => {
-  return dispatch => {
-    dispatch(deleteCartItemSuccess(item));
-  };
-};
-
-const changeSubtractClick = item => {
-  return dispatch => {
-    dispatch(changeSubtractClickSuccess(item));
-  };
-};
-
-const changeAddClick = item => {
-  return dispatch => {
-    dispatch(changeAddClickSuccess(item));
-  };
-};
-
 const changeInput = (count, item) => {
   return dispatch => {
     dispatch(changeInputSuccess({ count, item }));
   };
 };
 
-const changeCheckAll = checkAll => {
-  return dispatch => {
-    dispatch(changeCheckAllSuccess(checkAll));
-  };
-};
-
-const changeCheckBox = item => {
-  return dispatch => {
-    dispatch(changeCheckBoxSuccess(item));
-  };
-};
-
 const { actions, reducer } = cartSlice;
 
 export const {
-  addCartItemSuccess,
-  deleteCartItemSuccess,
-  changeSubtractClickSuccess,
-  changeAddClickSuccess,
-  changeInputSuccess,
-  changeCheckBoxSuccess,
-  changeCheckAllSuccess
-} = actions;
-
-export {
   addCartItem,
   deleteCartItem,
   changeSubtractClick,
   changeAddClick,
-  changeInput,
+  changeInputSuccess,
   changeCheckBox,
   changeCheckAll
+} = actions;
+
+export {
+  changeInput
 };
 
 export default reducer;

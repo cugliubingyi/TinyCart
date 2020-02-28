@@ -15,7 +15,7 @@ const homeSlice = createSlice({
       state.totalPage = Math.ceil(homeList.length / 4);
     },
 
-    changePageSuccess(state, action) {
+    changePage(state, action) {
       state.page = action.payload;
     }
   }
@@ -32,22 +32,15 @@ const getHomeList = () => {
   };
 };
 
-const changePage = (page) => {
-	return dispatch => {
-		dispatch(changePageSuccess(page));
-	}
-}
-
 const { actions, reducer } = homeSlice;
 
 export const {
 	changeHomeInfoSuccess,
-	changePageSuccess
+	changePage
 } = actions;
 
 export {
-	getHomeList,
-	changePage
+	getHomeList
 }
 
 export default reducer;

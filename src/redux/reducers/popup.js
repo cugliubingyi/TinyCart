@@ -6,38 +6,21 @@ const popupSlice = createSlice({
     show: false
   },
   reducers: {
-    showPopUpSuccess(state, action) {
+    showPopUp(state, action) {
       state.show = true;
     },
 
-    hidePopUpSuccess(state, action) {
+    hidePopUp(state, action) {
       state.show = false;
     }
   }
 });
 
-const showPopUp = () => {
-  return dispatch => {
-    dispatch(showPopUpSuccess());
-  };
-};
-
-const hidePopUp = () => {
-  return dispatch => {
-    dispatch(hidePopUpSuccess());
-  };
-};
-
 const { actions, reducer } = popupSlice;
 
 export const {
-  showPopUpSuccess,
-  hidePopUpSuccess
-} = actions;
-
-export {
   showPopUp,
   hidePopUp
-};
+} = actions;
 
 export default reducer;
