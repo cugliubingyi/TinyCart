@@ -2,23 +2,23 @@ import React from "react";
 import ListItem from "components/home/ListItem";
 import { createSelector } from "reselect";
 
-export const getHomeList = state => state.home.homeList;
+export const getProductList = state => state.products.productList;
 
-export const getPage = state => state.home.page;
+export const getCurPage = state => state.products.curPage;
 
 export const itemPerPage = 4;
 
 export const getProductArea = createSelector(
-  [getHomeList, getPage],
-  (homeList, page) => {
+  [getProductList, getCurPage],
+  (productList, page) => {
     let pageList = [];
-    if (homeList.length) {
+    if (productList.length) {
       for (
         let i = (page - 1) * (itemPerPage > 4 ? 4 : itemPerPage);
         i < page * (itemPerPage > 4 ? 4 : itemPerPage);
         i++
       ) {
-        if (i < homeList.length) {
+        if (i < productList.length) {
           pageList.push(<ListItem key={i} index={i} />);
         } else {
           break;

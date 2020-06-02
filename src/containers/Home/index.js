@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { getHomeList } from "redux/reducers/home";
+import { getProductList } from "redux/reducers/products";
 import List from "components/home/List";
 import Pagination from "components/home/Pagination";
 import SiteLayout from "layout/SiteLayout";
@@ -25,7 +25,7 @@ class Home extends PureComponent {
 
 const mapDispatch = dispatch => ({
   changeHomeInfo() {
-    dispatch(getHomeList());
+    dispatch(getProductList());
   }
 });
 

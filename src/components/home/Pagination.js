@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { changePage } from "redux/reducers/home";
+import { changePage } from "redux/reducers/products";
 import {
   PaginationWrapper,
   PaginationList,
@@ -9,14 +9,14 @@ import {
 
 class Pagination extends PureComponent {
   getPaginationArea() {
-    const { homeList, page, totalPage, handleChangePage } = this.props;
+    const { productList, curPage, totalPage, handleChangePage } = this.props;
     let pageList = [];
-    if (homeList.length) {
+    if (productList.length) {
       for (let i = 1; i <= totalPage; i++) {
         pageList.push(
           <PaginationItem
             className={`pagination-num ${
-              page === i ? "pagination-active" : ""
+              curPage === i ? "pagination-active" : ""
             }`}
             key={i}
             onClick={() => handleChangePage(i)}
@@ -29,7 +29,7 @@ class Pagination extends PureComponent {
     pageList.unshift(
       <PaginationItem
         key="prev"
-        onClick={() => handleChangePage(page - 1, totalPage)}
+        onClick={() => handleChangePage(curPage - 1, totalPage)}
       >
         上一页
       </PaginationItem>
@@ -42,7 +42,7 @@ class Pagination extends PureComponent {
     pageList.push(
       <PaginationItem
         key="next"
-        onClick={() => handleChangePage(page + 1, totalPage)}
+        onClick={() => handleChangePage(curPage + 1, totalPage)}
       >
         下一页
       </PaginationItem>
@@ -66,10 +66,10 @@ class Pagination extends PureComponent {
   }
 }
 
-const mapState = state => ({
-  homeList: state.home.homeList,
-  page: state.home.page,
-  totalPage: state.home.totalPage
+const mapState = (state) => ({
+  productList: state.products.productList,
+  curPage: state.products.curPage,
+  totalPage: state.products.totalPage,
 });
 
 const mapDispatch = dispatch => ({

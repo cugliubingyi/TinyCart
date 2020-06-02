@@ -1,11 +1,6 @@
-import homeReducer from "./home";
+import productsReducer from "./products";
 import detailReducer from "./detail";
 import cartReducer from "./cart";
 import popupReducer from "./popup";
 
-export {
-  homeReducer,
-  detailReducer,
-  cartReducer,
-  popupReducer
-}
+export { productsReducer, detailReducer, cartReducer, popupReducer };

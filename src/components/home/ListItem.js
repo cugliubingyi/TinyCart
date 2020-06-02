@@ -8,7 +8,7 @@ import {
 } from "containers/Home/style";
 
 const ListItem = props => {
-  const newList = props.homeList;
+  const newList = props.productList;
   return (
     <ProductItem key={newList[props.index].id}>
       <Link className="product-link" to={`detail/${newList[props.index].id}`}>
@@ -33,8 +33,8 @@ const ListItem = props => {
   );
 };
 
-const mapState = state => ({
-  homeList: state.home.homeList
+const mapState = (state) => ({
+  productList: state.products.productList,
 });
 
 export default connect(mapState, null)(ListItem);

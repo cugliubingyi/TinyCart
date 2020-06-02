@@ -2,17 +2,17 @@ import { combineReducers } from "redux";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 
 import {
-  homeReducer,
+  productsReducer,
   detailReducer,
   cartReducer,
   popupReducer
 } from "./reducers";
 
 const reducer = combineReducers({
-  home: homeReducer,
+  products: productsReducer,
   detail: detailReducer,
   cart: cartReducer,
-  popup: popupReducer
+  popup: popupReducer,
 });
 
 const middleware = getDefaultMiddleware();

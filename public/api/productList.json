@@ -1,7 +1,7 @@
 {
   "success": true,
   "data": {
-    "homeList": [{
+    "productList": [{
       "id": 1,
       "imgUrl": "http://img.alicdn.com/bao/uploaded/i3/643301378/O1CN01HMJ4IY1M3AHqsNSRN_!!0-item_pic.jpg_310x310.jpg",
       "name": "简约潮流体恤衫",

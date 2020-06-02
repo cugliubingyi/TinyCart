@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-  getHomeList,
-  getPage,
-  getProductArea
-} from "redux/selectors/homeSelectors";
+  getProductList,
+  getCurPage,
+  getProductArea,
+} from "redux/selectors/productSelectors";
 import { ProductList } from "containers/Home/style";
 
 const List = props => {
@@ -15,10 +15,10 @@ const List = props => {
   );
 };
 
-const mapState = state => ({
-  homeList: getHomeList(state),
-  page: getPage(state),
-  pageList: getProductArea(state)
+const mapState = (state) => ({
+  productList: getProductList(state),
+  page: getCurPage(state),
+  pageList: getProductArea(state),
 });
 
 export default connect(mapState, null)(List);
