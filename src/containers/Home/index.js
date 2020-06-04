@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { getProductList } from "redux/reducers/products";
-import List from "components/home/List";
+import ProductList from "components/home/ProductList";
 import Pagination from "components/home/Pagination";
 import SiteLayout from "layout/SiteLayout";
 import { HomeWrapper } from "./style";
@@ -15,7 +15,7 @@ class Home extends PureComponent {
     return (
       <SiteLayout>
         <HomeWrapper>
-          <List />
+          <ProductList />
           <Pagination />
         </HomeWrapper>
       </SiteLayout>

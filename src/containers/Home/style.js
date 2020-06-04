@@ -5,14 +5,14 @@ export const HomeWrapper = styled.div`
   margin: 0 auto;
 `;
 
-export const ProductList = styled.ul`
+export const ProductListWrapper = styled.ul`
   margin-top: 200px;
   width: 100%;
   height: 300px;
   overflow: hidden;
 `;
 
-export const ProductItem = styled.li`
+export const ProductItemWrapper = styled.li`
   float: left;
   margin-right: 20px;
   width: 225px;
